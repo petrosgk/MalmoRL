@@ -3,3 +3,4 @@ A framework for training Reinforcement Learning agents in Minecraft with [Projec
 
 ![DRQN with biased ε-greedy](pools_dqn.gif)
 ![DRQN with biased ε-greedy](rooms_dqn.gif)
+![DRQN with biased ε-greedy](obstacles_dqn.gif)
