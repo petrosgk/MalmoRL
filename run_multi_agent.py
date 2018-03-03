@@ -2,17 +2,9 @@ import os
 from argparse import ArgumentParser
 from multiprocessing import Process, active_children
 from time import sleep
+from common import parse_clients_args
 
 from missions.multi_agent import MultiAgent
-
-
-def parse_clients_args(args_clients):
-    """
-    Return an array of tuples (ip, port) extracted from ip:port string
-    :param args_clients:
-    :return:
-    """
-    return [str.split(str(client), ':') for client in args_clients]
 
 
 def agent_factory(name, role, clients, agent_type, steps, mission, mode):
