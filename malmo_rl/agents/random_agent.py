@@ -1,9 +1,11 @@
+from agent import BaseAgent
 from rl.agents.random import RandomAgent
 
 
-class Random:
+class Random(BaseAgent):
     def __init__(self, name, env):
-        self.name = name
+        super(Random, self).__init__(name, env)
+
         self.nb_actions = env.available_actions
         self.agent = RandomAgent(nb_actions=self.nb_actions)
         self.agent.compile(None, None)
@@ -15,3 +17,8 @@ class Random:
     def test(self, env, nb_steps):
         self.fit(env, nb_steps)
 
+    def save(self, out_dir):
+        pass
+
+    def load(self, out_dir):
+        pass
