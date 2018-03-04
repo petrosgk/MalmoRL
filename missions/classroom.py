@@ -134,6 +134,10 @@ class ClassroomEnvironment(MissionEnvironment):
             for i in range(len(action)):
                 self._agent.sendCommand(action[i])
         else:
+            # Stop the previous action before sending the new action
+            if self._previous_action:
+                previous_command = self._previous_action.split()[0]
+                self._agent.sendCommand(previous_command + ' 0')
             self._agent.sendCommand(action)
         self._previous_action = action
         self._action_count += 1
