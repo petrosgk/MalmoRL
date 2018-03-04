@@ -31,3 +31,8 @@ You can look at the included `run_classroom.py` and `run_multi_agent.py` for how
 3. Deep Deterministic Policy Gradient (DDPG) with recurrent network support
 
 You can run `classroom_train_dqn.sh` or `classroom_train_ddpg.sh` to train DQN and DDPG respectively on the Classroom mission.
+
+### Requirements
+- Python 2.7 or 3.5
+- [Project Malmö](https://github.com/Microsoft/malmo)
+- (Optional) [keras-rl](https://github.com/petrosgk/keras-rl)
