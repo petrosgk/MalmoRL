@@ -24,7 +24,7 @@ class QLearner(BaseAgent):
         self.width = width
         self.height = height
 
-        self.recurrent = True  # Use LSTM
+        self.recurrent = False  # Use LSTM
         self.batch_size = 32
         self.window_length = 4
 
