@@ -18,11 +18,11 @@ Create `missions/<your_mission>.py`. Inside it you must define 3 classses:
 
 Take a look at the included `missions/classroom.py` and `missions/multi_agent.py` for more concrete examples.
 
-### Run an experiment
-You can look at the included `run_classroom.py` and `run_multi_agent.py` for how to make your own script for your custom experiment but you don't necessarily have to follow them. The scripts expect a list of clients defined in `clients.txt`. There must be at least as many clients as there are agents in the mission.
-
 ### Define an agent
 New agents should extend `BaseAgent` and override `fit()`, `test()`, `save()` and `load()` methods for training, testing, saving and loading the agent respectively. You can look at the included agents in `malmo_rl` for examples.
+
+### Run an experiment
+You can look at the included `run_classroom.py` and `run_multi_agent.py` for how to make your own script for your custom experiment but you don't necessarily have to follow them. The scripts expect a list of clients defined in `clients.txt`. There must be at least as many clients as there are agents in the mission.
 
 ### Use included agents
 `malmo_rl` includes 3 agents based on my fork of [keras-rl](https://github.com/petrosgk/keras-rl):
