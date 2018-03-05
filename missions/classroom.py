@@ -56,7 +56,7 @@ class Classroom(Mission):
                       <hintLikelihood>1</hintLikelihood>
                     </specification>
                   </ClassroomDecorator>
-                  <ServerQuitFromTimeUp timeLimitMs="60000" description="out_of_time"/>
+                  <ServerQuitFromTimeUp timeLimitMs="30000" description="out_of_time"/>
                   <ServerQuitWhenAnyAgentFinishes />
                 </ServerHandlers>
               </ServerSection>
@@ -76,7 +76,7 @@ class Classroom(Mission):
                       <command>attack</command>
                     </ModifierList>
                   </ContinuousMovementCommands>
-                  <RewardForMissionEnd rewardForDeath="-1000">
+                  <RewardForMissionEnd rewardForDeath="-10000">
                     <Reward description="found_goal" reward="1000" />
                     <Reward description="out_of_time" reward="-1000" />
                   </RewardForMissionEnd>
