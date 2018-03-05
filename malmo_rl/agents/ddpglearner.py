@@ -15,9 +15,8 @@ class DDPGLearner(BaseAgent):
     def __init__(self, name, env, grayscale, width, height):
         super(DDPGLearner, self).__init__(name=name, env=env)
 
-        self.nb_actions = self.env.available_actions
-        self.abs_max_reward = self.env.abs_max_reward
-        self.mission_name = self.env.mission_name
+        self.nb_actions = env.available_actions
+        self.mission_name = env.mission_name
 
         self.grayscale = grayscale
         self.width = width
@@ -51,7 +50,7 @@ class DDPGLearner(BaseAgent):
         self.random_process.append(GaussianWhiteNoiseProcess(mu=0.0, sigma=1.0))  # For turning
         '''
 
-        self.processor = MalmoProcessor(self.grayscale, self.window_length, self.recurrent, self.abs_max_reward)
+        self.processor = MalmoProcessor(self.grayscale, self.window_length, self.recurrent)
         self.agent = DDPGAgent(actor=self.actor, critic=self.critic, critic_action_input=self.action_input,
                                nb_actions=self.nb_actions, memory=self.memory, batch_size=self.batch_size,
                                processor=self.processor, random_process=self.random_process, gamma=0.99,
@@ -78,11 +77,10 @@ class DDPGLearner(BaseAgent):
 
 
 class MalmoProcessor(Processor):
-    def __init__(self, grayscale, window_length, recurrent, abs_max_reward):
+    def __init__(self, grayscale, window_length, recurrent):
         self.grayscale = grayscale
         self.window_length = window_length
         self.recurrent = recurrent
-        self.abs_max_reward = abs_max_reward
 
     def process_state_batch(self, batch):
         if not self.grayscale:
@@ -119,9 +117,3 @@ class MalmoProcessor(Processor):
     def process_action(self, action):
         action = list(action)
         return action
-
-    def process_reward(self, reward):
-        if self.abs_max_reward:
-            return reward / self.abs_max_reward
-        else:
-            return reward
