@@ -34,7 +34,7 @@ class Classroom(Mission):
                     <specification>
                       <width>7</width>
                       <height>7</height>
-                      <length>15</length>
+                      <length>7</length>
                       <pathLength>0</pathLength>
                       <divisions>
                         <southNorth>0</southNorth>
@@ -42,7 +42,7 @@ class Classroom(Mission):
                         <aboveBelow>0</aboveBelow>
                       </divisions>
                       <horizontalObstacles>
-                        <gap>1</gap>
+                        <gap>0</gap>
                         <bridge>0</bridge>
                         <door>0</door>
                         <puzzle>0</puzzle>
