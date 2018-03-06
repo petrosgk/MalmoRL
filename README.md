@@ -30,7 +30,7 @@ You can look at the included `run_classroom.py` and `run_multi_agent.py` for how
 2. Double Dueling DQN (D-DDQN) with recurrent network support
 3. Deep Deterministic Policy Gradient (DDPG) with recurrent network support
 
-You can run `classroom_train_dqn.sh` or `classroom_train_ddpg.sh` to train DQN and DDPG respectively on the Classroom mission.
+You can run `classroom_train_dqn.sh` or `classroom_train_ddpg.sh` to train DQN and DDPG respectively on the Classroom mission. You can also run `multi_agent_random.sh` to test a mission with 2 random agents and an overhead observer.
 
 ![malmo_rl_agents](dqn_ddpg.png)
 
