@@ -38,7 +38,7 @@ class DDPGLearner(BaseAgent):
         self.memory = SequentialMemory(limit=1000000, window_length=self.window_length)
 
         # Add random noise for exploration
-        self.random_process = GaussianWhiteNoiseProcess(mu=0.0, sigma=1.0, size=self.nb_actions)
+        self.random_process = GaussianWhiteNoiseProcess(mu=0.0, sigma=0.5, size=self.nb_actions)
 
         '''
         # We can also generate exploration noise with different parameters for each action. This is because we may want
