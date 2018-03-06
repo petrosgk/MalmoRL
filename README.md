@@ -32,6 +32,8 @@ You can look at the included `run_classroom.py` and `run_multi_agent.py` for how
 
 You can run `classroom_train_dqn.sh` or `classroom_train_ddpg.sh` to train DQN and DDPG respectively on the Classroom mission.
 
+![malmo_rl_agents](malmo_rl.png)
+
 ### Requirements
 - Python 2.7 or 3.5
 - [Project Malmö](https://github.com/Microsoft/malmo)
