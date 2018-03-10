@@ -1,8 +1,15 @@
 import os
 import numpy as np
 from agent import BaseAgent
+
+try:
+    import tensorflow as tf
+except ImportError:
+    tf = None
+
+from keras.backend import tensorflow_backend, image_data_format
 from keras.optimizers import Adam
-import keras.backend as K
+
 from rl.callbacks import ModelIntervalCheckpoint
 from rl.core import Processor
 from rl.memory import SequentialMemory
@@ -26,6 +33,12 @@ class DDPGLearner(BaseAgent):
         self.recurrent = False  # Use LSTM
         self.batch_size = 32
         self.window_length = 4
+
+        if tf:
+            config = tf.ConfigProto()
+            config.gpu_options.allow_growth = True
+            sess = tf.Session(config=config)
+            tensorflow_backend.set_session(session=sess)
 
         if not self.recurrent:
             self.actor, self.critic, self.action_input = Minecraft_DDPG(self.window_length, self.grayscale, self.width,
@@ -92,23 +105,23 @@ class MalmoProcessor(Processor):
                 for i in range(self.window_length):
                     states.append(batch[:, i, :, :, :])
                 # Concatenate states in the batch along the channel axis
-                if K.image_data_format() == 'channels_last':
+                if image_data_format() == 'channels_last':
                     processed_batch = np.concatenate(states, axis=3)
                 else:
                     processed_batch = np.concatenate(states, axis=3).transpose((0, 3, 1, 2))  # Channels-first order
             else:
-                if K.image_data_format() == 'channels_last':
+                if image_data_format() == 'channels_last':
                     processed_batch = batch
                 else:
                     processed_batch = batch.transpose((0, 1, 4, 2, 3))  # Channels-first order
         else:
             if not self.recurrent:
-                if K.image_data_format() == 'channels_last':
+                if image_data_format() == 'channels_last':
                     processed_batch = batch.transpose((0, 2, 3, 1))
                 else:
                     processed_batch = batch
             else:
-                if K.image_data_format() == 'channels_last':
+                if image_data_format() == 'channels_last':
                     processed_batch = np.expand_dims(batch, axis=4)
                 else:
                     processed_batch = np.expand_dims(batch, axis=2)
