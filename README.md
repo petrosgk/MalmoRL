@@ -38,3 +38,6 @@ You can run `classroom_train_dqn.sh` or `classroom_train_ddpg.sh` to train DQN a
 - Python 2.7 or 3.5
 - [Project Malmö](https://github.com/Microsoft/malmo)
 - (Optional) [keras-rl](https://github.com/petrosgk/keras-rl)
+
+### Extra
+If you want to use the environments shown in the .gifs you can download them [here](https://www.dropbox.com/s/tyeqoecwywzt0rk/custom_envs.tar.gz?dl=0) and extract them in your `<malmo_dir>/Minecraft/run/saves` folder.
