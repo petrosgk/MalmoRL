@@ -66,7 +66,7 @@ if __name__ == '__main__':
                             help='Number of steps to train for')
     arg_parser.add_argument('--action-space', default='discrete',
                             help='Action space to use (discrete, continuous)')
-    arg_parser.add_argument('--agents', default='random', nargs='+',
+    arg_parser.add_argument('--agents', default=['random'], nargs='+',
                             help='Agent(s) to use (default is 1 Random agent)')
     arg_parser.add_argument('--mode', default='training',
                             help='Training or testing mode')
